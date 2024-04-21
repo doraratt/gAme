@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import entity.Player;
 import javax.swing.*;
+import tile.TileManager;
 
 public class gamePanel extends JPanel implements Runnable {
     final int originalTileSize = 16;
@@ -30,6 +31,7 @@ public class gamePanel extends JPanel implements Runnable {
     //FPS
     int FPS = 60;
     
+    TileManager tileM = new TileManager(this);
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     Player player = new Player(this,keyH)
@@ -88,6 +90,7 @@ public class gamePanel extends JPanel implements Runnable {
         
         Graphics2D g2 = (Graphics2D)g;
         
+        tileM.draw(g2);
         player.draw(g2);
         
         g2.dispose();    
