@@ -10,6 +10,7 @@ package entity;
  */
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import javax.imageio.ImageIO;
@@ -29,6 +30,14 @@ public class Player extends Entity {
         
         screenX = gPanel.screenWidth/2 - (gPanel.tileSize/2);
         screenY = gPanel.screenHeight/2 - (gPanel.tileSize/2);
+        
+        solidArea = new Rectangle();
+        solidArea.x = 0;
+        solidArea.y = 0;
+        solidArea.width = 48;
+        solidArea.height = 48;
+            
+        
         
         setDefaultValues();
         getPlayerImage();
