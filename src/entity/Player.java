@@ -32,10 +32,10 @@ public class Player extends Entity {
         screenY = gPanel.screenHeight/2 - (gPanel.tileSize/2);
         
         solidArea = new Rectangle();
-        solidArea.x = 0;
-        solidArea.y = 0;
-        solidArea.width = 48;
-        solidArea.height = 48;
+        solidArea.x = 8;
+        solidArea.y = 16;
+        solidArea.width = 32;
+        solidArea.height = 32;
             
         
         
@@ -84,6 +84,10 @@ public class Player extends Entity {
                 direction = "right";
                 worldX += speed;
             }
+            
+            collisionOn = false;
+            gPanel.cChecker.checkTile(this
+                    
             spriteCounter++;
             if(spriteCounter>20){
                 if(spriteNum==1){
