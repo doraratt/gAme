@@ -18,8 +18,8 @@ import main.gamePanel;
  */
 public class TileManager {
     gamePanel gPanel;
-    Tile[] tile;
-    int mapTileNum[][];
+    public Tile[] tile;
+    public int mapTileNum[][];
     
     
     public TileManager(gamePanel gPanel){

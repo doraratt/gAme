@@ -25,6 +25,7 @@ public class main {
         window.setLocationRelativeTo(null);
         window.setVisible(true);
         
+        gPanel.setupGame();
         gPanel.startGameThread();
     }
 }

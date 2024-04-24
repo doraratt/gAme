@@ -35,13 +35,35 @@ public class CollisionChecker {
         switch(entity.direction){
             case "up":
                 entityTopRow = (entityTopWorldY - entity.speed)/gPanel.tileSize;
-                
+                tileNum1 = gPanel.tileM.mapTileNum[entityLeftCol][entityTopRow];
+                tileNum2 = gPanel.tileM.mapTileNum[entityRightCol][entityTopRow];
+                if(gPanel.tileM.tile[tileNum1].collision==true || gPanel.tileM.tile[tileNum2].collision == true){
+                    entity.collisionOn = true;
+                }
                 break;
             case "down":
+                entityBottomRow = (entityBottomWorldY + entity.speed)/gPanel.tileSize;
+                tileNum1 = gPanel.tileM.mapTileNum[entityLeftCol][entityBottomRow];
+                tileNum2 = gPanel.tileM.mapTileNum[entityRightCol][entityBottomRow];
+                if(gPanel.tileM.tile[tileNum1].collision==true || gPanel.tileM.tile[tileNum2].collision == true){
+                    entity.collisionOn = true;
+                }
                 break;
-            case "left";
+            case "left":
+                entityLeftCol = (entityLeftWorldX - entity.speed)/gPanel.tileSize;
+                tileNum1 = gPanel.tileM.mapTileNum[entityLeftCol][entityTopRow];
+                tileNum2 = gPanel.tileM.mapTileNum[entityLeftCol][entityBottomRow];
+                if(gPanel.tileM.tile[tileNum1].collision==true || gPanel.tileM.tile[tileNum2].collision == true){
+                    entity.collisionOn = true;
+                }
                 break;
-            case "right";
+            case "right":
+                entityRightCol = (entityRightWorldX + entity.speed)/gPanel.tileSize;
+                tileNum1 = gPanel.tileM.mapTileNum[entityRightCol][entityTopRow];
+                tileNum2 = gPanel.tileM.mapTileNum[entityRightCol][entityBottomRow];
+                if(gPanel.tileM.tile[tileNum1].collision==true || gPanel.tileM.tile[tileNum2].collision == true){
+                    entity.collisionOn = true;
+                }
                 break;
         }
     }

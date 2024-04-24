@@ -16,6 +16,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import entity.Player;
 import javax.swing.*;
+import object.OBJ_Key;
+import object.SuperObject;
 import tile.TileManager;
 
 public class gamePanel extends JPanel implements Runnable {
@@ -41,10 +43,10 @@ public class gamePanel extends JPanel implements Runnable {
     KeyHandler keyH = new KeyHandler();
     Thread gameThread;
     public CollisionChecker cChecker = new CollisionChecker(this);
-    public Player player = new Player(this,keyH)
-;    
-    //Set player's default position
-    int playerX = 100, playerY = 100, playerSpeed = 4;
+    public AssetSetter aSetter = new AssetSetter(this);
+    public Player player = new Player(this,keyH);
+    public SuperObject obj[] = new SuperObject[10];
+    
     
     public gamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -52,6 +54,10 @@ public class gamePanel extends JPanel implements Runnable {
         this.setDoubleBuffered(true);
         this.addKeyListener(keyH);
         this.setFocusable(true);
+    }
+    
+    public void setupGame(){
+        aSetter.setObject();
     }
     
     public void startGameThread(){
