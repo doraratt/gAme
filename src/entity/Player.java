@@ -16,6 +16,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import main.gamePanel;
 import main.KeyHandler;
+import main.UtilityTool;
 
 public class Player extends Entity {
     gamePanel gPanel;
@@ -23,6 +24,7 @@ public class Player extends Entity {
     
     public final int screenX;
     public final int screenY;
+    public int hasKey = 0;
     
     public Player(gamePanel gPanel, KeyHandler keyH){
         this.gPanel = gPanel;
@@ -63,6 +65,28 @@ public class Player extends Entity {
         }catch(IOException e){
             e.printStackTrace();
         }
+        
+        up1 = setup("boy_up_1");
+        up2 = setup("boy_up_2");
+        down1 = setup("boy_down_1");
+        down2 = setup("boy_down_2");
+        left1 = setup("boy_left_1");
+        left2 = setup("boy_left_2");
+        right1 = setup("boy_right_1");
+        right2 = setup("boy_right_2");
+    }
+    
+    public BufferedImage setup(String imageName){
+        UtilityTool uTool = new UtilityTool();
+        BufferedImage image = null;
+        
+        try{
+            image = ImageIO.read(getClass().getResourceAsStream("/player/" +imageName+ ".png"));
+            image = uTool.scaleImage(image, gPanel.tileSize, gPanel.tileSize);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        return null;
     }
     
     public void update(){
@@ -84,6 +108,10 @@ public class Player extends Entity {
             //CHHECK TILE COLLISION
             collisionOn = false;
             gPanel.cChecker.checkTile(this);
+            
+            //CHECK OBJECT COLLISION
+            int objIndex = gPanel.cChecker.checkObject(this, true);
+            pickUpObject(objIndex);
             
             //IF COLLISION IS FALSE, PLAYER CAN MOVE
             if(collisionOn==false){
@@ -113,6 +141,42 @@ public class Player extends Entity {
                 spriteCounter = 0;
             }
         } 
+    }
+    public void pickUpObject(int i){
+        if(i!=999){
+            String objectName = gPanel.obj[i].name;
+            
+            switch(objectName){
+                case "Key":
+                    gPanel.playSE(1);
+                    hasKey++;
+                    gPanel.obj[i] = null;
+                    gPanel.ui.showMessage("You got a key!");
+                    break;
+                case "Door":
+                    gPanel.playSE(3);
+                    if(hasKey>0){
+                        gPanel.obj[i] = null;
+                        hasKey--;
+                        gPanel.ui.showMessage("You opened the door!");
+                    }
+                    else{
+                        gPanel.ui.showMessage("You need a key!");
+                    }
+                    break;
+                case "Boots":
+                    gPanel.playSE(2);
+                    speed += 2;
+                    gPanel.obj[i] = null;
+                    gPanel.ui.showMessage("Speed up!");
+                    break;
+                case "Chest":
+                    gPanel.ui.gameFinished = true;
+                    gPanel.stopMusic();
+                    gPanel.playSE(4);
+                    break;
+            }
+        }
     }
     public void draw(Graphics2D g2){
         //g2.setColor(Color.white);
@@ -152,6 +216,6 @@ public class Player extends Entity {
                 }
                 break;
         }
-        g2.drawImage(image, screenX, screenY, gPanel.tileSize, gPanel.tileSize, null);
+        g2.drawImage(image, screenX, screenY, null);
     }
 }
