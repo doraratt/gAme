@@ -15,7 +15,7 @@ import main.gamePanel;
 public class OBJ_Key extends SuperObject {
     gamePanel gPanel;
     
-    public OBJ_Key(){
+    public OBJ_Key(gamePanel gPanel){
         name = "Key";
         try{
             image = ImageIO.read(getClass().getResourceAsStream("/objects/key.png"));

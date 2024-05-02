@@ -40,8 +40,8 @@ public class TileManager {
            setup(1, "wall", true);
            setup(2, "water", true);
            setup(3, "earth", false);
-           setup(4, "trees", true);
-           setup(5, "sand", false);
+           setup(4, "tree", true);
+           setup(5, "sand", false); 
     }
     
     public void setup(int index, String imageName, boolean collision){
@@ -55,6 +55,7 @@ public class TileManager {
             e.printStackTrace();
         }
     }
+    
     public void loadMap(String filePath){
         try{
             InputStream is = getClass().getResourceAsStream(filePath);
@@ -77,13 +78,13 @@ public class TileManager {
                     col = 0;
                     row++;
                 }
-               
             }
              br.close();
         }catch(IOException e){
             e.printStackTrace();
         }
     }
+    
     public void draw(Graphics2D g2){
         int worldCol=0, worldRow=0;
         
@@ -102,15 +103,12 @@ public class TileManager {
                 
                 g2.drawImage(tile[tileNum].image, screenX, screenY, null);
             }
-            
-            
+     
             worldCol++;
-            
             
             if(worldCol==gPanel.maxWorldCol){
                 worldCol = 0;              
-                worldRow++;
-                
+                worldRow++;  
             }
         }   
         

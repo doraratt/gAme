@@ -14,6 +14,7 @@ import main.gamePanel;
  */
 public class OBJ_Boots extends SuperObject{
     gamePanel gPanel;
+    
     public OBJ_Boots(gamePanel gPanel){
         name = "Boots";
         try{

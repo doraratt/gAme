@@ -102,6 +102,8 @@ public class gamePanel extends JPanel implements Runnable {
     public void update(){
        player.update();
     }
+    
+    @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
@@ -111,7 +113,6 @@ public class gamePanel extends JPanel implements Runnable {
         if(keyH.checkDrawTime==true){
             drawStart = System.nanoTime();
         }
-        
         
         //TILE
         tileM.draw(g2);
@@ -137,8 +138,7 @@ public class gamePanel extends JPanel implements Runnable {
             g2.drawString("Draw Time: " +passed, 10, 400);
             System.out.println("Draw Time: " +passed);
         }
-       
-        
+           
         g2.dispose();    
     }
     

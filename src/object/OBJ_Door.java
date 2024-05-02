@@ -14,6 +14,7 @@ import main.gamePanel;
  */
 public class OBJ_Door extends SuperObject {
     gamePanel gPanel;
+    
     public OBJ_Door(gamePanel gPanel){
         name = "Door";
         try{
