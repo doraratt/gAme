@@ -24,7 +24,7 @@ public class Player extends Entity {
     
     public final int screenX;
     public final int screenY;
-    public int hasKey = 0;
+    //public int hasKey = 0;
     
     public Player(gamePanel gPanel, KeyHandler keyH){
         this.gPanel = gPanel;
@@ -132,38 +132,7 @@ public class Player extends Entity {
     }
     public void pickUpObject(int i){
         if(i!=999){
-            String objectName = gPanel.obj[i].name;
-            
-            switch(objectName){
-                case "Key":
-                    gPanel.playSE(1);
-                    hasKey++;
-                    gPanel.obj[i] = null;
-                    gPanel.ui.showMessage("You got a key!");
-                    break;
-                case "Door":
-                    gPanel.playSE(3);
-                    if(hasKey>0){
-                        gPanel.obj[i] = null;
-                        hasKey--;
-                        gPanel.ui.showMessage("You opened the door!");
-                    }
-                    else{
-                        gPanel.ui.showMessage("You need a key!");
-                    }
-                    break;
-                case "Boots":
-                    gPanel.playSE(2);
-                    speed += 2;
-                    gPanel.obj[i] = null;
-                    gPanel.ui.showMessage("Speed up!");
-                    break;
-                case "Chest":
-                    gPanel.ui.gameFinished = true;
-                    gPanel.stopMusic();
-                    gPanel.playSE(4);
-                    break;
-            }
+           
         }
     }
     public void draw(Graphics2D g2){
