@@ -40,7 +40,7 @@ public class KeyHandler implements KeyListener{
                     if(gPanel.ui.commandNum < 0){
                         gPanel.ui.commandNum = 2;
                     }
-                }
+                } 
                 if(code == KeyEvent.VK_S){
                     gPanel.ui.commandNum++;
                     if(gPanel.ui.commandNum > 2){
@@ -50,7 +50,6 @@ public class KeyHandler implements KeyListener{
                 if(code == KeyEvent.VK_ENTER){
                     if(gPanel.ui.commandNum == 0){
                         gPanel.ui.titleScreenState = 1;
-                        gPanel.playMusic(0);
                     }
                     if(gPanel.ui.commandNum == 1){
 
@@ -59,14 +58,14 @@ public class KeyHandler implements KeyListener{
                         System.exit(0);
                     }
                 }
-            }
+            } 
             else if(gPanel.ui.titleScreenState == 1){
                 if(code == KeyEvent.VK_W){
-                gPanel.ui.commandNum--;
+                    gPanel.ui.commandNum--;
                     if(gPanel.ui.commandNum < 0){
                         gPanel.ui.commandNum = 3;
                     }
-                }
+                } 
                 if(code == KeyEvent.VK_S){
                     gPanel.ui.commandNum++;
                     if(gPanel.ui.commandNum > 3){
@@ -90,14 +89,14 @@ public class KeyHandler implements KeyListener{
                         gPanel.playMusic(0);
                     }
                     if(gPanel.ui.commandNum == 3){
-                        gPanel.ui.titleScreenState = 0;
+                        gPanel.ui.titleScreenState = 0;   //go back to previous screen
                     }
                 }
-            }   
+            } 
         }
         
         //PLAY STATE
-        if(gPanel.gameState == gPanel.titleState){
+     
             if(code == KeyEvent.VK_W){
                 upPressed = true;
             } 
@@ -118,7 +117,7 @@ public class KeyHandler implements KeyListener{
                     gPanel.gameState = gPanel.playState;
                 }
             }
-        }
+        
             
         //DEBUG
             if(code == KeyEvent.VK_T){

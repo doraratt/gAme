@@ -19,15 +19,13 @@ import main.KeyHandler;
 import main.UtilityTool;
 
 public class Player extends Entity {
-    gamePanel gPanel;
     KeyHandler keyH;
-    
     public final int screenX;
     public final int screenY;
-    //public int hasKey = 0;
     
     public Player(gamePanel gPanel, KeyHandler keyH){
-        this.gPanel = gPanel;
+        super(gPanel);
+   
         this.keyH = keyH;
         
         screenX = gPanel.screenWidth/2 - (gPanel.tileSize/2);

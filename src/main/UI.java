@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.Graphics2D;
+import java.awt.RenderingHints;
 import static java.awt.font.TextAttribute.FONT;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -58,6 +59,7 @@ public class UI {
     public void draw(Graphics2D g2){
         this.g2 = g2;
         g2.setFont(misterPixel);
+        g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g2.setColor(Color.white);
         
         //TITLE STATE
@@ -84,8 +86,9 @@ public class UI {
             int y = gPanel.tileSize*3;
 
             //SHADOW
-            g2.setColor(Color.black);
+            g2.setColor(Color.gray);
             g2.drawString(text, x+5, y+5);
+            
             //MAIN COLOR
             g2.setColor(Color.white);
             g2.drawString(text, x, y);
@@ -128,7 +131,7 @@ public class UI {
             g2.setColor(Color.white);
             g2.setFont(g2.getFont().deriveFont(42F));
             
-            String text = "Select your class!";
+            String text = "Select your character";
             int x = getXforCenteredText(text);
             int y = gPanel.tileSize*3;
             g2.drawString(text, x, y);
