@@ -19,6 +19,7 @@ public class KeyHandler implements KeyListener{
     //DEBUG
     boolean checkDrawTime = false;
     
+    
     public KeyHandler(gamePanel gPanel){
         this.gPanel = gPanel;
     }
@@ -34,6 +35,7 @@ public class KeyHandler implements KeyListener{
         
         //TITLE STATE
         if(gPanel.gameState == gPanel.titleState){
+            System.out.println("Key Pressed: " + code);
             if(gPanel.ui.titleScreenState == 0){
                 if(code == KeyEvent.VK_W){
                     gPanel.ui.commandNum--;
@@ -47,17 +49,18 @@ public class KeyHandler implements KeyListener{
                         gPanel.ui.commandNum = 0;
                     }
                 }
+                
                 if(code == KeyEvent.VK_ENTER){
                     if(gPanel.ui.commandNum == 0){
                         gPanel.ui.titleScreenState = 1;
                         gPanel.playMusic(0);
                     }
-                    if(gPanel.ui.commandNum == 1){
+                        if(gPanel.ui.commandNum == 1){
 
-                    }
-                    if(gPanel.ui.commandNum == 2){
-                        System.exit(0);
-                    }
+                        }
+                            if(gPanel.ui.commandNum == 2){
+                                System.exit(0);
+                            }
                 }
             }
             else if(gPanel.ui.titleScreenState == 1){
@@ -149,4 +152,5 @@ public class KeyHandler implements KeyListener{
             rightPressed = false;
         }
     }
+    
 }

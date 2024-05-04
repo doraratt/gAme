@@ -3,20 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/entity/Player.java</file>
-            <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/object/OBJ_Chest.java</file>
-            <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/main/AssetSetter.java</file>
-            <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/object/OBJ_Key.java</file>
-            <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/main/KeyHandler.java</file>
-            <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/object/OBJ_Boots.java</file>
-            <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/main/UtilityTool.java</file>
-            <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/main/CollisionChecker.java</file>
-            <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/main/gamePanel.java</file>
-            <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/main/UI.java</file>
-            <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/object/OBJ_Door.java</file>
-            <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/main/Sound.java</file>
-            <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/object/SuperObject.java</file>
-            <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/tile/TileManager.java</file>
+            <file>file:/C:/Users/Kyle/Desktop/gAme-main/gAme/src/main/gamePanel.java</file>
+            <file>file:/C:/Users/Kyle/Desktop/gAme-main/gAme/src/entity/Entity.java</file>
+            <file>file:/C:/Users/Kyle/Desktop/gAme-main/gAme/src/main/KeyHandler.java</file>
+            <file>file:/C:/Users/Kyle/Desktop/gAme-main/gAme/src/main/UI.java</file>
         </group>
     </open-files>
 </project-private>

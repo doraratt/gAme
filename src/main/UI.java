@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -30,6 +31,7 @@ public class UI {
     public boolean gameFinished = false;
     public int commandNum = 0;
     public int titleScreenState = 0;    //0 - first screen, 1 - second screen
+    public int loginScreem = 0; // 0 - Login , 1 - Register
     
     double playTime;
     DecimalFormat df = new DecimalFormat("#0.00");
@@ -60,7 +62,7 @@ public class UI {
         g2.setFont(misterPixel);
         g2.setColor(Color.white);
         
-        //TITLE STATE
+        //TITLE STATE-
         if(gPanel.gameState==gPanel.titleState){
             drawTitleScreen();
         }
@@ -70,6 +72,10 @@ public class UI {
         if(gPanel.gameState==gPanel.pauseState){
             drawPauseScreen();
         }
+    }
+    
+    public void drawLoginScreen(){
+        
     }
     public void drawTitleScreen(){
         if(titleScreenState == 0){
@@ -98,6 +104,8 @@ public class UI {
             //MENU
             g2.setFont(g2.getFont().deriveFont(Font.BOLD, 35F));
 
+            
+            
             text = "NEW GAME";
             x = getXforCenteredText(text);
             y += gPanel.tileSize*3.5;
@@ -181,4 +189,3 @@ public class UI {
         return x;
     }
 }
-

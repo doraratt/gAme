@@ -69,8 +69,8 @@ public class gamePanel extends JPanel implements Runnable {
     public void setupGame(){
         aSetter.setObject();
         playMusic(0);
-        stopMusic();
         gameState = titleState;
+        
     }
     
     public void startGameThread(){
@@ -127,6 +127,7 @@ public class gamePanel extends JPanel implements Runnable {
         if(keyH.checkDrawTime==true){
             drawStart = System.nanoTime();
         }
+        
         
         //TITLE SCREEN
         if(gameState==titleState){
