@@ -1,3 +1,4 @@
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -24,13 +25,14 @@ public class UI {
     gamePanel gPanel;
     Graphics2D g2;
     Font misterPixel;
-    //BufferedImage keyImage;
+    BufferedImage keyImage;
     public boolean messageOn = false;
     public String message = "";
     int messageCounter = 0;
     public boolean gameFinished = false;
     public int commandNum = 0;
     public int titleScreenState = 0;    //0 - first screen, 1 - second screen
+    public int loginScreem = 0; // 0 - Login , 1 - Register
     
     double playTime;
     DecimalFormat df = new DecimalFormat("#0.00");
@@ -44,11 +46,9 @@ public class UI {
         }catch(FontFormatException | IOException e){
             e.printStackTrace();
         }
-        //OBJ_Key key = new OBJ_Key(gPanel);
-        //keyImage = key.image;
-        
-        //OBJ_Key key = new OBJ_Key(gPanel);
-        //keyImage = key.image;
+        OBJ_Key key = new OBJ_Key(gPanel);
+        keyImage = key.image;
+
     }
     
     public void showMessage(String text){
@@ -57,12 +57,60 @@ public class UI {
     }
     
     public void draw(Graphics2D g2){
+        //DOOR AND KEYS
+        if(gameFinished == true){
+            g2.setFont(misterPixel);
+            g2.setColor(Color.white);
+            
+            String text;
+            int textLength;
+            int x, y;
+            
+            text = "You found the treasure";
+            textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+            x = gPanel.screenWidth/2 - textLength/2;
+            y = gPanel.screenHeight/2 - (gPanel.tileSize*3);
+            g2.drawString(text, x, y);
+            
+            text = "Your time is " +df.format(playTime) + "!";
+            textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+            x = gPanel.screenWidth/2 - textLength/2;
+            y = gPanel.screenHeight/2 - (gPanel.tileSize*4);
+
+            
+            g2.setFont(misterPixel);
+            g2.setColor(Color.yellow);
+            text = "Congratulations!";
+            textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+            x = gPanel.screenWidth/2 - textLength/2;
+            y = gPanel.screenHeight/2 - (gPanel.tileSize*2);
+            g2.drawString(text, x, y);
+            
+            gPanel.gameThread = null;
+        }
+        else{
+            g2.setFont(misterPixel);
+            g2.setColor(Color.white);
+
+            //TIME
+            playTime += (double)1/60;
+            
+            //MESSAGE
+            if(messageOn == true){
+                if(messageCounter > 120){
+                    messageCounter = 0;
+                    messageOn = false;
+                }
+            }
+        }
+        
+        //TITLE 
         this.g2 = g2;
         g2.setFont(misterPixel);
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g2.setColor(Color.white);
         
-        //TITLE STATE
+        //TITLE STATE-
         if(gPanel.gameState==gPanel.titleState){
             drawTitleScreen();
         }
@@ -72,6 +120,10 @@ public class UI {
         if(gPanel.gameState==gPanel.pauseState){
             drawPauseScreen();
         }
+    }
+    
+    public void drawLoginScreen(){
+        
     }
     public void drawTitleScreen(){
         if(titleScreenState == 0){
@@ -101,6 +153,8 @@ public class UI {
             //MENU
             g2.setFont(g2.getFont().deriveFont(Font.BOLD, 35F));
 
+            
+            
             text = "NEW GAME";
             x = getXforCenteredText(text);
             y += gPanel.tileSize*3.5;
@@ -184,4 +238,3 @@ public class UI {
         return x;
     }
 }
-

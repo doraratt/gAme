@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package entity;
-
+//kyler jenner
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 import main.gamePanel;

@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/resources/maps/world01.txt</file>
             <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/entity/Player.java</file>
             <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/object/OBJ_Chest.java</file>
@@ -20,6 +21,12 @@
             <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/main/Sound.java</file>
             <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/object/SuperObject.java</file>
             <file>file:/C:/Users/e/Desktop/java/OOP2Activities/game/src/tile/TileManager.java</file>
+=======
+            <file>file:/C:/Users/Kyle/Desktop/gAme-main/gAme/src/main/gamePanel.java</file>
+            <file>file:/C:/Users/Kyle/Desktop/gAme-main/gAme/src/entity/Entity.java</file>
+            <file>file:/C:/Users/Kyle/Desktop/gAme-main/gAme/src/main/KeyHandler.java</file>
+            <file>file:/C:/Users/Kyle/Desktop/gAme-main/gAme/src/main/UI.java</file>
+>>>>>>> 9fbac1f4cf56ab479707606522ca64aab244e6f8
         </group>
     </open-files>
 </project-private>
