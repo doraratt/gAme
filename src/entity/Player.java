@@ -41,7 +41,7 @@ public class Player extends Entity {
         solidArea.height = 32;
             
         setDefaultValues();
-        getPlayerImage();
+        getPlayerImage();                  //characterName paramater
     }
     
     public void setDefaultValues(){
@@ -51,16 +51,31 @@ public class Player extends Entity {
         direction = "down";
     }
     
-    public void getPlayerImage(){
-
-        up1 = setup("boy_up_1");
-        up2 = setup("boy_up_2");
-        down1 = setup("boy_down_1");
-        down2 = setup("boy_down_2");
-        left1 = setup("boy_left_1");
-        left2 = setup("boy_left_2");
-        right1 = setup("boy_right_1");
-        right2 = setup("boy_right_2");
+    public void getPlayerImage(){           //String characterName
+        
+        up1 = setup("maru_up_1");
+        up2 = setup("maru_up_2");
+        down1 = setup("maru_down_1");
+        down2 = setup("maru_down_2");
+        left1 = setup("maru_left_1");
+        left2 = setup("maru_left_2");
+        right1 = setup("maru_right_1");
+        right2 = setup("maru_right_2");
+        
+        /*switch(characterName){                          //testing: to be added for character selection
+            case "Maru":
+                up1 = setup("maru_up_1");
+                up2 = setup("maru_up_2");
+                down1 = setup("maru_down_1");
+                down2 = setup("maru_down_2");
+                left1 = setup("maru_left_1");
+                left2 = setup("maru_left_2");
+                right1 = setup("maru_right_1");
+                right2 = setup("maru_right_2");
+            case "sage":
+                
+        }*/
+        
     }
     
     public BufferedImage setup(String imageName){
@@ -138,14 +153,14 @@ public class Player extends Entity {
                     gPanel.playSE(1);
                     hasKey++;
                     gPanel.obj[i] = null;
-                    gPanel.ui.showMessage("You got a key!");
+                    //gPanel.ui.showMessage("You got a key!");
                     break;
                 case "Door":
                     if(hasKey > 0){
                         gPanel.playSE(3);
                         hasKey--;
                         gPanel.obj[i] = null;
-                        gPanel.ui.showMessage("You opened the door!");
+                        //gPanel.ui.showMessage("You opened the door!");
                     }
                     else{
                         gPanel.ui.showMessage("You need a key!");
@@ -156,11 +171,11 @@ public class Player extends Entity {
                     speed += 1;
                   //bootsOn = true;
                     gPanel.obj[i] = null;
-                    gPanel.ui.showMessage("Speed up!");
+                    //gPanel.ui.showMessage("Speed up!");
                     break;
                 case "Chest":
                     gPanel.ui.gameFinished = true;
-                    gPanel.stopMusic();
+                    //gPanel.stopMusic();
                     gPanel.playSE(4);
                     break;
            }

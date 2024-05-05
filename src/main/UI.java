@@ -65,20 +65,19 @@ public class UI {
             g2.setColor(Color.white);
             
             String text;
-            int textLength;
-            int x;
-            int y;
-            
+            int textLength, x, y;
             text = "You found the treasure!";
             textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
             x = gPanel.screenWidth/2 - textLength/2;
             y = gPanel.screenHeight/2 - (gPanel.tileSize*3);
             g2.drawString(text, x, y);
             
-            text = "You time is: " +df.format(playTime);
+            int minutes = (int)playTime/60;
+            int seconds = (int)playTime%60;
+            text = "Your time is: " +String.format("%02d:%02d", minutes, seconds);
             textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
             x = gPanel.screenWidth/2 - textLength/2;
-            y = gPanel.screenHeight/2 - (gPanel.tileSize*3);
+            y = gPanel.screenHeight/2 - (gPanel.tileSize*4);
             g2.drawString(text, x, y);
             
             g2.setFont(arial_80B);

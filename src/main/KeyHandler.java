@@ -75,7 +75,7 @@ public class KeyHandler implements KeyListener{
                 }
                 if(code == KeyEvent.VK_ENTER){
                     if(gPanel.ui.commandNum == 0){
-                        System.out.println("Do some Jett stuff!");
+                        System.out.println("Do some Maru stuff!");
                         gPanel.gameState = gPanel.playState;
                         
                     }
@@ -87,7 +87,7 @@ public class KeyHandler implements KeyListener{
                     if(gPanel.ui.commandNum == 2){
                         System.out.println("Do some Killjoy stuff!");
                         gPanel.gameState = gPanel.playState;
-                        
+                        //gPanel.player.setPlayerImage()
                     }
                     if(gPanel.ui.commandNum == 3){
                         gPanel.ui.titleScreenState = 0;   //go back to previous screen
