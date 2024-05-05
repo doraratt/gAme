@@ -21,6 +21,7 @@ public class AssetSetter {
     }
     
     public void setObject(){
+        //OBJECTS IN MAP THAT ARE COLLECTIBLE
         gPanel.obj[0] = new OBJ_Key(gPanel);
         gPanel.obj[0].worldX = 23*gPanel.tileSize;
         gPanel.obj[0].worldY = 7*gPanel.tileSize;

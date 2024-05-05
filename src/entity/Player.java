@@ -191,8 +191,9 @@ public class Player extends Entity {
                 if(spriteNum==1){
                     image = left1;
                 }
-                    image = left2;
+                    
                 if(spriteNum==2){
+                    image = left2;
                 }
                 break;
             case "right":

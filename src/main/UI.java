@@ -134,7 +134,7 @@ public class UI {
 
             //TITLE NAME
             g2.setFont(g2.getFont().deriveFont(Font.BOLD, 75F));
-            String text = "Blue Girl Adventure";
+            String text = "Red Walking Hood";
             int x = getXforCenteredText(text);
             int y = gPanel.tileSize*3;
 
@@ -191,7 +191,7 @@ public class UI {
             int y = gPanel.tileSize*3;
             g2.drawString(text, x, y);
             
-            text = "Jett";
+            text = "Pochi";
             x = getXforCenteredText(text);
             y += gPanel.tileSize*3;
             g2.drawString(text, x, y);
