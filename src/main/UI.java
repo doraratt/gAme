@@ -24,7 +24,7 @@ import object.OBJ_Key;
 public class UI {
     gamePanel gPanel;
     Graphics2D g2;
-    Font misterPixel, arial_80B;
+    Font misterpixel, arial_80B;
     BufferedImage keyImage;
     public boolean messageOn = false;
     public String message = "";
@@ -32,25 +32,25 @@ public class UI {
     public boolean gameFinished = false;
     public int commandNum = 0;
     public int titleScreenState = 0;    //0 - first screen, 1 - second screen
-    public int loginScreem = 0; // 0 - Login , 1 - Register
+    public int loginScreen = 0; // 0 - Login , 1 - Register
     
     double playTime;
     DecimalFormat df = new DecimalFormat("#0.00");
     
     public UI(gamePanel gPanel){
         this.gPanel = gPanel;
-        misterPixel = new Font("mPixel", Font.PLAIN, 40);
+        misterpixel = new Font("Mister Pixel", Font.PLAIN, 40);
+        arial_80B = new Font("Arial", Font.BOLD, 80);
         
-        try{
+        /*try{
             InputStream is = getClass().getResourceAsStream("/font/misterpixel.ttf");
             misterPixel = Font.createFont(Font.TRUETYPE_FONT, is);
         }catch(FontFormatException | IOException e){
             e.printStackTrace();
-        }
+        }*/
         
         OBJ_Key key = new OBJ_Key(gPanel);
         keyImage = key.image;
-
     }
     
     public void showMessage(String text){
@@ -61,7 +61,7 @@ public class UI {
     public void draw(Graphics2D g2){
         //DOOR AND KEYS
         if(gameFinished == true){
-            g2.setFont(misterPixel);
+            g2.setFont(misterpixel);
             g2.setColor(Color.white);
             
             String text;
@@ -69,7 +69,13 @@ public class UI {
             int x;
             int y;
             
-            text = "You found the treasure";
+            text = "You found the treasure!";
+            textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+            x = gPanel.screenWidth/2 - textLength/2;
+            y = gPanel.screenHeight/2 - (gPanel.tileSize*3);
+            g2.drawString(text, x, y);
+            
+            text = "You time is: " +df.format(playTime);
             textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
             x = gPanel.screenWidth/2 - textLength/2;
             y = gPanel.screenHeight/2 - (gPanel.tileSize*3);
@@ -86,11 +92,22 @@ public class UI {
             gPanel.gameThread = null;
         }
         else{
-            g2.setFont(misterPixel);
+            g2.setFont(misterpixel);
             g2.setColor(Color.white);
             g2.drawImage(keyImage, gPanel.tileSize/2, gPanel.tileSize/2, gPanel.tileSize, gPanel.tileSize, null);
             g2.drawString("x " +gPanel.player.hasKey, 74, 65);
         
+            //TIME
+            
+            int minutes = (int)playTime/60;
+            int seconds = (int)playTime%60;
+            
+            String timeString = String.format("Time: %02d:%02d", minutes, seconds);
+            g2.drawString(timeString, gPanel.tileSize*11, 65);
+            playTime += (double)1/60;
+            //g2.drawString("Time: " +df.format(playTime), gPanel.tileSize*11, 65);
+            
+            //MESSAGE
             if(messageOn == true){
                 g2.setFont(g2.getFont().deriveFont(30F));
                 g2.drawString(message, gPanel.tileSize/2, gPanel.tileSize*5);
@@ -104,10 +121,9 @@ public class UI {
             }
         }
         
-        
         //TITLE 
         this.g2 = g2;
-        g2.setFont(misterPixel);
+        g2.setFont(misterpixel);
         g2.setRenderingHint(RenderingHints.KEY_TEXT_ANTIALIASING, RenderingHints.VALUE_TEXT_ANTIALIAS_ON);
         g2.setColor(Color.white);
         

@@ -19,7 +19,6 @@ public class KeyHandler implements KeyListener{
     //DEBUG
     boolean checkDrawTime = false;
     
-    
     public KeyHandler(gamePanel gPanel){
         this.gPanel = gPanel;
     }
@@ -49,17 +48,16 @@ public class KeyHandler implements KeyListener{
                         gPanel.ui.commandNum = 0;
                     }
                 }
-                
                 if(code == KeyEvent.VK_ENTER){
                     if(gPanel.ui.commandNum == 0){
                         gPanel.ui.titleScreenState = 1;
                     }
-                        if(gPanel.ui.commandNum == 1){
+                    if(gPanel.ui.commandNum == 1){
 
-                        }
-                            if(gPanel.ui.commandNum == 2){
-                                System.exit(0);
-                            }
+                    }
+                    if(gPanel.ui.commandNum == 2){
+                        System.exit(0);
+                    }
                 }
             } 
             else if(gPanel.ui.titleScreenState == 1){
@@ -98,8 +96,7 @@ public class KeyHandler implements KeyListener{
             } 
         }
         
-        //PLAY STATE
-     
+            //PLAY STATE
             if(code == KeyEvent.VK_W){
                 upPressed = true;
             } 
@@ -121,8 +118,7 @@ public class KeyHandler implements KeyListener{
                 }
             }
         
-            
-        //DEBUG
+            //DEBUG
             if(code == KeyEvent.VK_T){
                 if(checkDrawTime == false){
                     checkDrawTime = true;
@@ -133,10 +129,9 @@ public class KeyHandler implements KeyListener{
 
             }
         }
-    
-
+  
     @Override
-    public void keyReleased(KeyEvent e) {
+    public void keyReleased(KeyEvent e){
          int code = e.getKeyCode();
         if (code == KeyEvent.VK_W) {
             upPressed = false;
@@ -151,5 +146,4 @@ public class KeyHandler implements KeyListener{
             rightPressed = false;
         }
     }
-    
 }
