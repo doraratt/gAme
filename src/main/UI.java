@@ -129,17 +129,17 @@ public class UI {
     public void drawTitleScreen(){
         if(titleScreenState == 0){
             //BACKGROUND
-            g2.setColor(new Color(70, 120, 80));
+            g2.setColor(new Color(153, 0, 0));
             g2.fillRect(0, 0, gPanel.screenWidth, gPanel.screenHeight);
 
             //TITLE NAME
             g2.setFont(g2.getFont().deriveFont(Font.BOLD, 75F));
-            String text = "Red Walking Hood";
+            String text = "Red Boy Hood";
             int x = getXforCenteredText(text);
             int y = gPanel.tileSize*3;
 
             //SHADOW
-            g2.setColor(Color.gray);
+            g2.setColor(Color.black);
             g2.drawString(text, x+5, y+5);
             
             //MAIN COLOR
@@ -154,8 +154,6 @@ public class UI {
             //MENU
             g2.setFont(g2.getFont().deriveFont(Font.BOLD, 35F));
 
-            
-            
             text = "NEW GAME";
             x = getXforCenteredText(text);
             y += gPanel.tileSize*3.5;
@@ -191,7 +189,7 @@ public class UI {
             int y = gPanel.tileSize*3;
             g2.drawString(text, x, y);
             
-            text = "Pochi";
+            text = "Maru";
             x = getXforCenteredText(text);
             y += gPanel.tileSize*3;
             g2.drawString(text, x, y);
