@@ -143,7 +143,7 @@ public class Player extends Entity {
                 case "Door":
                     if(hasKey > 0){
                         gPanel.playSE(3);
-                        hasKey++;
+                        hasKey--;
                         gPanel.obj[i] = null;
                         gPanel.ui.showMessage("You opened the door!");
                     }

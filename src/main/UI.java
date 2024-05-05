@@ -39,6 +39,7 @@ public class UI {
     
     public UI(gamePanel gPanel){
         this.gPanel = gPanel;
+        misterPixel = new Font("mPixel", Font.PLAIN, 40);
         
         try{
             InputStream is = getClass().getResourceAsStream("/font/misterpixel.ttf");
@@ -46,6 +47,7 @@ public class UI {
         }catch(FontFormatException | IOException e){
             e.printStackTrace();
         }
+        
         OBJ_Key key = new OBJ_Key(gPanel);
         keyImage = key.image;
 
@@ -64,7 +66,8 @@ public class UI {
             
             String text;
             int textLength;
-            int x, y;
+            int x;
+            int y;
             
             text = "You found the treasure";
             textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
@@ -72,18 +75,12 @@ public class UI {
             y = gPanel.screenHeight/2 - (gPanel.tileSize*3);
             g2.drawString(text, x, y);
             
-            text = "Your time is " +df.format(playTime) + "!";
-            textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-            x = gPanel.screenWidth/2 - textLength/2;
-            y = gPanel.screenHeight/2 - (gPanel.tileSize*4);
-
-            
             g2.setFont(misterPixel);
             g2.setColor(Color.yellow);
-            text = "Congratulations!";
+            text = "Congratulations";
             textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
             x = gPanel.screenWidth/2 - textLength/2;
-            y = gPanel.screenHeight/2 - (gPanel.tileSize*2);
+            y = gPanel.screenHeight/2 + (gPanel.tileSize*2);
             g2.drawString(text, x, y);
             
             gPanel.gameThread = null;
@@ -91,18 +88,22 @@ public class UI {
         else{
             g2.setFont(misterPixel);
             g2.setColor(Color.white);
-
-            //TIME
-            playTime += (double)1/60;
-            
-            //MESSAGE
+            g2.drawImage(keyImage, gPanel.tileSize/2, gPanel.tileSize/2, gPanel.tileSize, gPanel.tileSize, null);
+            g2.drawString("x " +gPanel.player.hasKey, 74, 65);
+        
             if(messageOn == true){
+                g2.setFont(g2.getFont().deriveFont(30F));
+                g2.drawString(message, gPanel.tileSize/2, gPanel.tileSize*5);
+
+                messageCounter++;
+
                 if(messageCounter > 120){
                     messageCounter = 0;
                     messageOn = false;
                 }
             }
         }
+        
         
         //TITLE 
         this.g2 = g2;

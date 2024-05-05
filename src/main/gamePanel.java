@@ -128,7 +128,6 @@ public class gamePanel extends JPanel implements Runnable {
             drawStart = System.nanoTime();
         }
         
-        
         //TITLE SCREEN
         if(gameState==titleState){
             ui.draw(g2);
