@@ -135,11 +135,11 @@ public class Player extends Entity {
            
            switch(objectName){
                 case "Key":
-                   gPanel.playSE(1);
-                   hasKey++;
-                   gPanel.obj[i] = null;
-                   gPanel.ui.showMessage("You got a key!");
-                   break;
+                    gPanel.playSE(1);
+                    hasKey++;
+                    gPanel.obj[i] = null;
+                    gPanel.ui.showMessage("You got a key!");
+                    break;
                 case "Door":
                     if(hasKey > 0){
                         gPanel.playSE(3);
@@ -152,17 +152,17 @@ public class Player extends Entity {
                     }
                    break;
                 case "Boots":
-                   gPanel.playSE(2);
-                   speed += 1;
-                 //bootsOn = true;
-                   gPanel.obj[i] = null;
-                   gPanel.ui.showMessage("Speed up!");
-                   break;
+                    gPanel.playSE(2);
+                    speed += 1;
+                  //bootsOn = true;
+                    gPanel.obj[i] = null;
+                    gPanel.ui.showMessage("Speed up!");
+                    break;
                 case "Chest":
-                  gPanel.ui.gameFinished = true;
-                  gPanel.stopMusic();
-                  gPanel.playSE(4);
-                  break;
+                    gPanel.ui.gameFinished = true;
+                    gPanel.stopMusic();
+                    gPanel.playSE(4);
+                    break;
            }
         }
     }

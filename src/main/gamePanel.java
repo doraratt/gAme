@@ -109,10 +109,10 @@ public class gamePanel extends JPanel implements Runnable {
     }
     
     public void update(){
-        if(gameState==playState){
+        if(gameState == playState){
             player.update();
         }
-       if(gameState==pauseState){
+       if(gameState == pauseState){
            
        }
     }
@@ -124,12 +124,12 @@ public class gamePanel extends JPanel implements Runnable {
         
         //DEBUG
         long drawStart = 0;
-        if(keyH.checkDrawTime==true){
+        if(keyH.checkDrawTime == true){
             drawStart = System.nanoTime();
         }
         
         //TITLE SCREEN
-        if(gameState==titleState){
+        if(gameState == titleState){
             ui.draw(g2);
         }
         
@@ -153,7 +153,7 @@ public class gamePanel extends JPanel implements Runnable {
          }
         
         //DEBUG
-        if(keyH.checkDrawTime==true){
+        if(keyH.checkDrawTime == true){
             long drawEnd = System.nanoTime();
             long passed = drawEnd - drawStart;
             g2.setColor(Color.white);

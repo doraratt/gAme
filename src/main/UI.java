@@ -24,7 +24,7 @@ import object.OBJ_Key;
 public class UI {
     gamePanel gPanel;
     Graphics2D g2;
-    Font misterPixel;
+    Font misterPixel, arial_80B;
     BufferedImage keyImage;
     public boolean messageOn = false;
     public String message = "";
@@ -75,7 +75,7 @@ public class UI {
             y = gPanel.screenHeight/2 - (gPanel.tileSize*3);
             g2.drawString(text, x, y);
             
-            g2.setFont(misterPixel);
+            g2.setFont(arial_80B);
             g2.setColor(Color.yellow);
             text = "Congratulations";
             textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();

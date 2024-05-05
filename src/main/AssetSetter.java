@@ -29,9 +29,9 @@ public class AssetSetter {
         gPanel.obj[1].worldX = 23*gPanel.tileSize;
         gPanel.obj[1].worldY = 40*gPanel.tileSize;
         
-        gPanel.obj[2] = new OBJ_Key(gPanel);
+        /*gPanel.obj[2] = new OBJ_Key(gPanel);
         gPanel.obj[2].worldX = 30*gPanel.tileSize;
-        gPanel.obj[2].worldY = 8*gPanel.tileSize;
+        gPanel.obj[2].worldY = 8*gPanel.tileSize;*/
         
         gPanel.obj[3] = new OBJ_Key(gPanel);
         gPanel.obj[3].worldX = 10*gPanel.tileSize;
