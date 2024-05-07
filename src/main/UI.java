@@ -104,28 +104,28 @@ public class UI {
             g2.drawString("x " +gPanel.player.hasKey, 74, 65);
             if(titleScreenState == 0){
                 playTime = 1;
-            //TIME
-            int minutes = (int)playTime/60;
-            int seconds = (int)playTime%60;
+                //TIME
+                int minutes = (int)playTime/60;
+                int seconds = (int)playTime%60;
             
-            String timeString = String.format("Time: %02d:%02d", minutes, seconds);
-            g2.drawString(timeString, gPanel.tileSize*11, 65);
-            playTime += (double)1/60;
-            //g2.drawString("Time: " +df.format(playTime), gPanel.tileSize*11, 65);*/
+                String timeString = String.format("Time: %02d:%02d", minutes, seconds);
+                g2.drawString(timeString, gPanel.tileSize*11, 65);
+                playTime += (double)1/60;
+                //g2.drawString("Time: " +df.format(playTime), gPanel.tileSize*11, 65);*/
             
-            //MESSAGE
-            if(messageOn == true){
-                g2.setFont(g2.getFont().deriveFont(30F));
-                g2.drawString(message, gPanel.tileSize/2, gPanel.tileSize*5);
+                //MESSAGE
+                if(messageOn == true){
+                    g2.setFont(g2.getFont().deriveFont(30F));
+                    g2.drawString(message, gPanel.tileSize/2, gPanel.tileSize*5);
 
-                messageCounter++;
+                    messageCounter++;
 
-                if(messageCounter > 120){
-                    messageCounter = 0;
-                    messageOn = false;
+                    if(messageCounter > 120){
+                        messageCounter = 0;
+                        messageOn = false;
+                    }
                 }
             }
-        }
         }
         
         //TITLE 
@@ -191,8 +191,7 @@ public class UI {
         textY = frameY + gPanel.tileSize+90;
         g2.drawString("Full Screen", textY, textY);
         
-        
-        //musicooff or sound
+        //musicoff or sound
         textX = frameX + gPanel.tileSize;
         textY += gPanel.tileSize;
         g2.drawString("Music", textX, textY);
@@ -206,20 +205,21 @@ public class UI {
         if(commandNum == 1){
             g2.drawString(">", textX-25, textY);
         }
+        
         //end
         textY += gPanel.tileSize;
         g2.drawString("End", textX, textY);
         if(commandNum == 2){
             g2.drawString(">", textX-25, textY);
         }
-    //back
+        
+        //back
         textX += gPanel.tileSize+25;
         textY += gPanel.tileSize*2;
         g2.drawString("Back", textX, textY);
         if(commandNum == 3){
             g2.drawString(">", textX-25, textY);
         }
-        
         
         textX = frameX + gPanel.tileSize*3+36;
         textY = frameY + gPanel.tileSize*2 + 24;
@@ -231,28 +231,29 @@ public class UI {
     }
     
     public void drawSubWindow(Graphics2D g2, int frameX, int frameY, int frameWidth, int frameHeight, float opacity, float strokeWidth, float cornerRadius) {
-    Composite originalComposite = g2.getComposite();
+        Composite originalComposite = g2.getComposite();
 
-    // Create a new AlphaComposite with the specified opacity
-    AlphaComposite alphaComposite = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, opacity);
+        // Create a new AlphaComposite with the specified opacity
+        AlphaComposite alphaComposite = AlphaComposite.getInstance(AlphaComposite.SRC_OVER, opacity);
 
-    // Set the new composite
-    g2.setComposite(alphaComposite);
+        // Set the new composite
+        g2.setComposite(alphaComposite);
 
-// Save the current graphics context
-    Graphics2D g2Temp = (Graphics2D) g2.create();
-    g2Temp.setStroke(new BasicStroke(strokeWidth));
-    // Draw the subwindow background
-    g2Temp.setColor(Color.BLACK); // Set background color
-    g2Temp.fillRoundRect(frameX, frameY, frameWidth, frameHeight, (int) cornerRadius, (int) cornerRadius);
+        // Save the current graphics context
+        Graphics2D g2Temp = (Graphics2D) g2.create();
+        g2Temp.setStroke(new BasicStroke(strokeWidth));
 
-    // Draw the border of the subwindow
-    g2Temp.setColor(Color.WHITE);
-    g2Temp.drawRoundRect(frameX, frameY, frameWidth, frameHeight, (int) cornerRadius, (int) cornerRadius);
-     g2.setComposite(originalComposite);
+        // Draw the subwindow background
+        g2Temp.setColor(Color.BLACK); // Set background color
+        g2Temp.fillRoundRect(frameX, frameY, frameWidth, frameHeight, (int) cornerRadius, (int) cornerRadius);
 
-    // Restore the original graphics context
-    g2Temp.dispose();
+        // Draw the border of the subwindow
+        g2Temp.setColor(Color.WHITE);
+        g2Temp.drawRoundRect(frameX, frameY, frameWidth, frameHeight, (int) cornerRadius, (int) cornerRadius);
+        g2.setComposite(originalComposite);
+
+        // Restore the original graphics context
+        g2Temp.dispose();
 }
 
     public void drawLoginScreen(){
