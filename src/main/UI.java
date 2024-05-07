@@ -102,8 +102,9 @@ public class UI {
             g2.setColor(Color.white);
             g2.drawImage(keyImage, gPanel.tileSize/2, gPanel.tileSize/2, gPanel.tileSize, gPanel.tileSize, null);
             g2.drawString("x " +gPanel.player.hasKey, 74, 65);
-            if(titleScreenState == 0){
-                playTime = 1;
+            if(titleScreenState == 1){
+                //playTime = 1;
+                
                 //TIME
                 int minutes = (int)playTime/60;
                 int seconds = (int)playTime%60;
