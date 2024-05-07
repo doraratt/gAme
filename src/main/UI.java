@@ -157,9 +157,9 @@ public class UI {
         
         
         //SUB WINDOW
-        int frameX = gPanel.tileSize+180;
+        int frameX = gPanel.tileSize+140;
         int frameY = gPanel.tileSize+50;
-        int frameWidth = gPanel.tileSize+252;
+        int frameWidth = gPanel.tileSize+352;
         int frameHeight = gPanel.tileSize+292;
         float opacity = 0.85f;
         float strokeWidth = 2.0f;
@@ -186,14 +186,15 @@ public class UI {
         textY = frameY + gPanel.tileSize;
         g2.drawString(text, textX, textY);
         
-        //fullScreen
-//        textX = frameX + gPanel.tileSize;
-//        textY = gPanel.tileSize*2;
-//        g2.drawString("Full Screen", textY, textY);
-
+       // fullScreen
+        textX = frameX + gPanel.tileSize+37;
+        textY = frameY + gPanel.tileSize+90;
+        g2.drawString("Full Screen", textY, textY);
+        
+        
         //musicooff or sound
         textX = frameX + gPanel.tileSize;
-        textY += gPanel.tileSize*2;
+        textY += gPanel.tileSize;
         g2.drawString("Music", textX, textY);
         if(commandNum == 0){
             g2.drawString(">", textX-25, textY);
@@ -211,13 +212,22 @@ public class UI {
         if(commandNum == 2){
             g2.drawString(">", textX-25, textY);
         }
-        //back
+    //back
         textX += gPanel.tileSize+25;
         textY += gPanel.tileSize*2;
         g2.drawString("Back", textX, textY);
         if(commandNum == 3){
             g2.drawString(">", textX-25, textY);
         }
+        
+        
+        textX = frameX + gPanel.tileSize*3+36;
+        textY = frameY + gPanel.tileSize*2 + 24;
+        g2.setStroke(new BasicStroke(3));
+        g2.drawRect(textX+40, textY-4, 24, 20);
+        
+        textY += gPanel.tileSize;
+        g2.drawRect(textX, textY, 120, 20);
     }
     
     public void drawSubWindow(Graphics2D g2, int frameX, int frameY, int frameWidth, int frameHeight, float opacity, float strokeWidth, float cornerRadius) {

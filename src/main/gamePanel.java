@@ -34,6 +34,7 @@ public class gamePanel extends JPanel implements Runnable {
     public final int maxWorldCol = 50;
     public final int maxWorldRow = 50;
     
+    public boolean fullScreenOn = false;
     //FPS
     int FPS = 60;
     
@@ -57,7 +58,7 @@ public class gamePanel extends JPanel implements Runnable {
     public final int playState = 1;
     public final int pauseState = 2;
     public final int optionsState = 5;
-
+    
     
     public gamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -69,7 +70,7 @@ public class gamePanel extends JPanel implements Runnable {
     
     public void setupGame(){
         aSetter.setObject();
-        playMusic(0);
+        //playMusic(0);
         gameState = titleState;
         
     }
