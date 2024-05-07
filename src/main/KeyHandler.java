@@ -116,8 +116,16 @@ public class KeyHandler implements KeyListener{
                 else if(gPanel.gameState == gPanel.pauseState){
                     gPanel.gameState = gPanel.playState;
                 }
+            } 
+            if(code == KeyEvent.VK_ESCAPE){
+                if(gPanel.gameState == gPanel.playState){
+                gPanel.gameState = gPanel.optionsState;
+            }   
+                else if(gPanel.gameState == gPanel.optionsState){
+                    gPanel.gameState = gPanel.playState;
+                }
+               
             }
-        
             //DEBUG
             if(code == KeyEvent.VK_T){
                 if(checkDrawTime == false){
@@ -126,9 +134,40 @@ public class KeyHandler implements KeyListener{
                 else if(checkDrawTime==true){
                     checkDrawTime = false;
                 }
-
             }
         }
+    
+    public void optionsState(int code){
+        
+        if(code == KeyEvent.VK_ESCAPE){
+            gPanel.gameState = gPanel.playState;
+        }
+        if(code == KeyEvent.VK_ENTER){
+            boolean enterPressed = true;
+        }
+        
+//        int maxCommandNum = 3;
+//        switch(gPanel.ui.subState){
+//            case 0: maxCommandNum = 3;
+//            break;
+//        }
+        
+        if(code == KeyEvent.VK_W){
+            gPanel.ui.commandNum--;
+            gPanel.playSE(9);
+            if(gPanel.ui.commandNum < 0){
+                gPanel.ui.commandNum = 3;
+            }
+        }
+        
+        if(code == KeyEvent.VK_S){
+            gPanel.ui.commandNum++;
+            gPanel.playSE(9);
+            if(gPanel.ui.commandNum > 3){
+                gPanel.ui.commandNum = 0;
+            }
+        }
+    }
   
     @Override
     public void keyReleased(KeyEvent e){

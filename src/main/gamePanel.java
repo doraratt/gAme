@@ -56,7 +56,8 @@ public class gamePanel extends JPanel implements Runnable {
     public final int titleState = 0;
     public final int playState = 1;
     public final int pauseState = 2;
-    
+    public final int optionsState = 5;
+
     
     public gamePanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -68,7 +69,7 @@ public class gamePanel extends JPanel implements Runnable {
     
     public void setupGame(){
         aSetter.setObject();
-        //playMusic(0);
+        playMusic(0);
         gameState = titleState;
         
     }
